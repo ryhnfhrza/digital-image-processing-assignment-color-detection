@@ -1,7 +1,7 @@
 clc; clear; close all; warning off all;
 
 % melakukan pembacaan file citra rgb 
-RGB = imread('Data-Test/bricks toy.jpg');
+RGB = imread('../Data-Test/bricks toy.jpg');
 figure, imshow(RGB);
 title('Citra Asli');
 
