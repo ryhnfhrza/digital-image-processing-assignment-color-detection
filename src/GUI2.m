@@ -45,7 +45,50 @@ end
 
 
 % --- Executes just before GUI2 is made visible.
-function GUI2_OpeningFcn(hObject, eventdata, handles, varargin)
+function GUI2_OpeningFcn(hObject, eventdata, handles,varargin)
+  % Inisialisasi GUI2
+    handles.output = hObject;
+
+    % Periksa apakah ada data yang diteruskan melalui varargin
+    if ~isempty(varargin)
+        processSteps = varargin{1}; % Ambil data yang diteruskan
+
+        % Tampilkan gambar proses pada masing-masing axes
+        axes(handles.axes1);
+        imshow(processSteps{1}); % Gambar asli
+        title('Gambar Asli');
+
+        axes(handles.axes2);
+        imshow(processSteps{2}); % Gambar dalam format HSV
+        title('Gambar HSV');
+
+        axes(handles.axes3);
+        imshow(processSteps{3}); % Gambar biner hasil deteksi warna
+        title('Deteksi Warna');
+
+        axes(handles.axes4);
+        imshow(processSteps{4}); % Gambar setelah operasi morfologi
+        title('Operasi Morfologi');
+
+        axes(handles.axes5);
+        imshow(processSteps{5}); % Gambar hasil rekonstruksi warna
+        title('Rekonstruksi Warna');
+
+        axes(handles.axes6);
+        imshow(processSteps{6}); % Final processed image
+        title('Hasil Akhir');
+
+        % Simpan data ke handles
+        handles.processedSteps = processSteps;
+    else
+        % Jika tidak ada data, tampilkan alert
+        errordlg('Tidak ada data yang diteruskan ke GUI2!', 'Error');
+    end
+
+    % Simpan handles
+    guidata(hObject, handles);
+
+
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -53,10 +96,9 @@ function GUI2_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to GUI2 (see VARARGIN)
 
 % Choose default command line output for GUI2
-handles.output = hObject;
 
 % Update handles structure
-guidata(hObject, handles);
+
 
 % UIWAIT makes GUI2 wait for user response (see UIRESUME)
 % uiwait(handles.figure1);

@@ -208,7 +208,7 @@ function processButtonCallback(hObject, eventdata, handles)
 
     % Tampilkan hasil di GUI1 pada axes3
     axes(handles.axes3);
-    imshow(restoredImageFinal);
+    imshow(restoredImageFinal;);
     title(['Hasil Deteksi Warna: ' selectedColor]);
 
     % Simpan data ke handles dan panggil GUI2 tanpa argumen tambahan
