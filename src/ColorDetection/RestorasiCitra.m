@@ -3,11 +3,9 @@ function restoredImageFinal = RestorasiCitra(RGB)
     grayRGB = rgb2gray(RGB);
 
     % Analisis citra untuk mendeteksi noise atau blur
-    % (Misalnya, menggunakan varian untuk deteksi noise atau perhitungan sharpness untuk deteksi blur)
-    % Ini adalah contoh sederhana menggunakan standar deviasi untuk mendeteksi noise
     stdDev = std2(grayRGB); % Menghitung standar deviasi citra
 
-    % Jika standar deviasi sangat rendah, citra bisa memiliki noise tinggi
+    % Jika standar deviasi sangat rendah = noise tinggi
     if stdDev < 50
         % Deteksi noise -> Gunakan Filter Median
         disp('Citra terdeteksi dengan noise, menggunakan Filter Median.');
