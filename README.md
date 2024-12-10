@@ -52,7 +52,7 @@ The results of each process step are displayed on a separate image window. Each 
 ## How to use
 - clone repository
 ```
-https://github.com/ryhnfhrza/digital-image-processing-assignment-color-detection
+git clone https://github.com/ryhnfhrza/digital-image-processing-assignment-color-detection
 ```
 - open folder src and find GUI1.m files
 - run the GUI1.m
